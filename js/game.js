@@ -172,7 +172,6 @@ function cellClicked(elCell, i, j) {
         setTimeout(setMinesNegsCount(gBoard), 1000)
     }
     memory.push(gBoard)
-    console.log('memory:', memory)
 
     if (hintMode) {
         hintNegs(i, j)
@@ -373,7 +372,6 @@ function checkGameIsOver() {
 }
 
 function undo() {
-    console.log('memory:', memory)
     gBoard = memory.pop()
     renderBoard(gBoard)
 }
