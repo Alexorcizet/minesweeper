@@ -116,7 +116,7 @@ function markFlag(ev) {
         gBoard[currCell[0]][currCell[1]].isMarked = true
         renderCell(currCell[0], currCell[1], FLAG)
         checkGameIsOver()
-    } 
+    }
     else {
         gBombsCounter++
         gBoard[currCell[0]][currCell[1]].isMarked = false
@@ -186,6 +186,7 @@ function cellClicked(elCell, i, j) {
             expandShown(gBoard, elCell, i, j)
         }
         else if (gBoard[i][j].minesAroundCount && !gBoard[i][j].isMine) {
+
             renderCell(i, j, gBoard[i][j].minesAroundCount, 'darkGrey')
         } else {
             if (gLevel.LIVES === 0) {
@@ -225,8 +226,8 @@ function renderCell(i, j, value, color) {
     elCell.style.backgroundColor = color
     elCell.innerHTML = value
     elCell.style.color = numColors(gBoard[i][j].minesAroundCount)
-    if (value === BOMB) return
     gGame.shownCount++
+    if (value === BOMB) return
 }
 
 function getSafe() {
@@ -362,7 +363,11 @@ function resetGame() {
 }
 
 function checkGameIsOver() {
-    if (gGame.markedCount === gLevel.MINES && gCellsCount === gGame.shownCount) {
+    console.log('gGame.markedCount:', gGame.markedCount)
+    console.log('gLevel.MINES:', gLevel.MINES)
+    console.log('gCellsCount:', gCellsCount)
+    console.log('gGame.shownCount:', gGame.shownCount)
+    if (gGame.markedCount === gLevel.MINES && gCellsCount <= gGame.shownCount) {
         win.play()
         document.querySelector('.mines-left').innerText = 'You Mastered this Minefield Try a harder One'
         gGame.isOn = false
