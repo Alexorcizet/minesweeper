@@ -363,10 +363,6 @@ function resetGame() {
 }
 
 function checkGameIsOver() {
-    console.log('gGame.markedCount:', gGame.markedCount)
-    console.log('gLevel.MINES:', gLevel.MINES)
-    console.log('gCellsCount:', gCellsCount)
-    console.log('gGame.shownCount:', gGame.shownCount)
     if (gGame.markedCount === gLevel.MINES && gCellsCount <= gGame.shownCount) {
         win.play()
         document.querySelector('.mines-left').innerText = 'You Mastered this Minefield Try a harder One'
