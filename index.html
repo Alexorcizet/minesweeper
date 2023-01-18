@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Mine Sweeper Sprint</title>
+  </head>
+  <body onload="initGame()">
+      <div class="data-container">
+        <div class="header">
+          <h1 class="mines-left"></h1>
+          <p class="life"></p>
+          <p class="hints"></p>
+        </div>
+      </div>
+          <div class="difficulty">
+            <button onclick="easy()">Easy</button>
+            <button onclick="medium()">Medium</button>
+            <button onclick="hard()">Hard</button>
+          </div>
+        <div class="reset-and-time">
+          <button onclick="getHint()" class="hint"></button>
+          <button onclick="getSafe()" class="safe"></button>
+          <button onclick="resetGame()" class="face">&#128516</button>
+          <p class="timer">Timer: <span class="min">00</span>:<span class="sec">00</span></p></div>
+        </div>
+        <div class="board-container"></div>
+    <script src="js/util.js"></script>
+    <script src="js/game.js"></script>
+  </body>
+  <footer>Made by Alex Hlebnikov A.K.A Alexorcizet&#169</footer>
+</html>
